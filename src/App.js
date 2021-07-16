@@ -35,7 +35,12 @@ class App extends Component{
     return(
       <div className="App">
          <h1>Hello Sajib</h1>
-         <Person/>
+         <Person name="Sajib" age="25">I am Info</Person>
+         <Person name="Santha" age="20">I am Info</Person>
+         <Person name="jahid" age="28">I am Info</Person>
+         <Person name="Rahim" age="26">I am Info</Person>
+         <Person name="Kobir" age="29">I am Info</Person>
+         <Person name="Arafat" age="35">I am Info</Person>
       </div>
     );
   }
