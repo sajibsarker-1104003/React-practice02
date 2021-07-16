@@ -1,15 +1,17 @@
-import React from 'react';
+
+import React ,{Component} from 'react';
 import './App.css';
 import Person from './Components/Person';
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Hello Sajib</h1>
-      <Person/>
-    </div>
-  );
-}
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <h1>Hello Sajib</h1>
+//       <Person/>
+//     </div>
+//   );
+// }
 // function App(){
 // return React.createElement('div', { className: "App" }, React.createElement('h1', null, "Hello World"),<Person/> );
 // }
@@ -25,5 +27,18 @@ function App() {
 // function Person(){
 //   return(React.createElement('div',null,React.createElement('h1',null,"I am Person Component")));
 // }
+
+
+
+class App extends Component{
+  render(){
+    return(
+      <div className="App">
+         <h1>Hello Sajib</h1>
+         <Person/>
+      </div>
+    );
+  }
+}
 
 export default App;
