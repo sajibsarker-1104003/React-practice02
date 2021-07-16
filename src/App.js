@@ -1,25 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// function App() {
+//   return (
+//     <div className="App">
+//       <h1>Hello Sajib</h1>
+//       <Person/>
+//     </div>
+//   );
+// }
+function App(){
+  return(React.createElement('div',{className:"App"},React.createElement('h1',null,"Hello World")));
+}
+
+// function Person(){
+//   return(
+//     <div>
+//       <h1> I am Person Component</h1>
+//     </div>
+
+//   );
+// }
+function Person(){
+  return(React.createElement('div',null,React.createElement('h1',null,"I am Person Component")));
 }
 
 export default App;
