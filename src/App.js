@@ -1,7 +1,8 @@
 
 import React ,{Component} from 'react';
 import './App.css';
-import Person from './Components/Person';
+//import Person from './Components/Person';
+import Book from './Components/Book';
 
 
 // function App() {
@@ -34,13 +35,11 @@ class App extends Component{
   render(){
     return(
       <div className="App">
-         <h1>Hello Sajib</h1>
-         <Person name="Sajib" age="25">I am Info</Person>
-         <Person name="Santha" age="20">I am Info</Person>
-         <Person name="jahid" age="28">I am Info</Person>
-         <Person name="Rahim" age="26">I am Info</Person>
-         <Person name="Kobir" age="29">I am Info</Person>
-         <Person name="Arafat" age="35">I am Info</Person>
+         <h1>Book List</h1>
+         <Book bookName="1984" written="George Orwell">Book Info</Book>
+         <Book bookName="1971" written="x">Book Info</Book>
+         <Book bookName="1947" written="y">Book Info</Book>
+         <Book bookName="1954" written="z">Book Info</Book>
       </div>
     );
   }
