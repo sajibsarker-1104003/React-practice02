@@ -19,11 +19,11 @@ class App extends Component{
     ],
     otherProp:"I am some other Prop"
   }
-  changeBookState=()=>{
+  changeBookState=newBookName=>{
     console.log("Button Clicked!!!");
    this.setState({
     books:[
-      {bookName:"P",written:"pp"},
+      {bookName:newBookName,written:"pp"},
       {bookName:"Q",written:"qq"},
       {bookName:"R",written:"rr"},
       {bookName:"S",written:"ss"}
@@ -34,14 +34,17 @@ class App extends Component{
     return(
       <div className="App">
          <h1>Book List</h1>
-         <button onClick={this.changeBookState}>Change State</button>
+         <button onClick={this.changeBookState.bind(this,"Nineteen Eighty Four")}>Change State</button>
          <Book bookName={this.state.books[0].bookName} written={this.state.books[0].written}/>
          <Book bookName={this.state.books[1].bookName} written={this.state.books[1].written}/>
          <Book bookName={this.state.books[2].bookName} written={this.state.books[2].written}/>
-         <Book bookName={this.state.books[3].bookName} written={this.state.books[3].written}/> 
+         <Book bookName={this.state.books[3].bookName} written={this.state.books[3].written}
+         change={this.changeBookState.bind(this,"1984")}/> 
       </div>
     );
   }
 }
-
+// Another Way Of Binding:
+// <button onClick={()=>this.changeBookState("Nineteen Eighty Four")}></button>
 export default App;
+
