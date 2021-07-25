@@ -1,0 +1,11 @@
+.Book{
+  text-align: center;
+  width: 300px;
+  margin:10 px auto;
+  padding:20px;
+  border :1px solid;
+  border-radius: 5px;
+  background-color:rgb(55, 83, 83);
+  color: aliceblue;
+  
+}

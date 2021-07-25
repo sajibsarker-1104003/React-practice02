@@ -41,14 +41,26 @@ class App extends Component{
      });
   }
   render(){
+    const style={
+      border:"1 px solid red",
+      borderRadius:"5px",
+      backgroundColor:"black",
+      color:"white"
+    };
     return(
       <div className="App">
-         <h1>Book List</h1>
+         <h1 style={style}>Book List</h1>
          <button onClick={this.changeBookState.bind(this,"Nineteen Eighty Four")}>Change State</button>
          <input type="text" onChange={this.changeWithInputState}/>
-         <Book bookName={this.state.books[0].bookName} written={this.state.books[0].written} inputName={this.changeWithInputState}/>
+
+         <Book bookName={this.state.books[0].bookName}       written={this.state.books[0].written}
+         inputName={this.changeWithInputState}/>
+
          <Book bookName={this.state.books[1].bookName} written={this.state.books[1].written}/>
+
          <Book bookName={this.state.books[2].bookName} written={this.state.books[2].written}/>
+         
+
          <Book bookName={this.state.books[3].bookName} written={this.state.books[3].written}
          change={this.changeBookState.bind(this,"1984")}/> 
       </div>
@@ -56,6 +68,6 @@ class App extends Component{
   }
 }
 // Another Way Of Binding:
-// <button onClick={()=>this.changeBookState("Nineteen Eighty Four")}></button>
+// <button onClick={()=>this.changeBookState("Nineteen Eighty Four")}>Change State</button>
 export default App;
 
