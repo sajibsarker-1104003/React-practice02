@@ -20,15 +20,13 @@ class App extends Component{
   }
  
  
-  changeWithInputState=e=>{
-    this.setState({
-      books:[
-        {bookName:e.target.value,written:"pp"},
-        {bookName:"Q",written:"qq"},
-        {bookName:"R",written:"rr"},
-        {bookName:"S",written:"ss"}
-      ]
-     });
+  changeWithInputState=(event,index)=>{
+    const book={...this.state.books[index]
+    }
+    book.bookName=event.target.value;
+    const books=[...this.state.books];
+    books[index]=book;
+    this.setState({books:books});
   }
 
   deleteBookState=index=>{
@@ -63,6 +61,7 @@ class App extends Component{
          delete={this.deleteBookState.bind(this,index)}
          //delete={()=>this.deleteBookState(index)}
          key={book.id}
+         inputName={(event)=>this.changeWithInputState(event,index)}
          />
       );
     });
