@@ -47,13 +47,28 @@ class App extends Component{
       backgroundColor:"black",
       color:"white"
     };
+    // const booksState=this.state.books;
+    // console.log(booksState);
+    // const books=booksState.map(function(book){
+    //   console.log(book.bookName);
+    //   console.log(book.written);
+    // });
+    const books=this.state.books.map(book=>{
+      return(
+         <Book
+         bookName={book.bookName}
+         written={book.written}
+         />
+      );
+    });
+    console.log(books);
     return(
       <div className="App">
          <h1 style={style}>Book List</h1>
          <button onClick={this.changeBookState.bind(this,"Nineteen Eighty Four")}>Change State</button>
          <input type="text" onChange={this.changeWithInputState}/>
 
-         <Book 
+         {/* <Book 
          bookName={this.state.books[0].bookName}       written={this.state.books[0].written}
          inputName={this.changeWithInputState}/>
 
@@ -69,7 +84,8 @@ class App extends Component{
          <Book 
          bookName={this.state.books[3].bookName} 
          written={this.state.books[3].written}
-         change={this.changeBookState.bind(this,"1984")}/> 
+         change={this.changeBookState.bind(this,"1984")}/>  */}
+         {books}
       </div>
     );
   }
