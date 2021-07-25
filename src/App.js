@@ -12,10 +12,10 @@ class App extends Component{
   // }
   state={
     books:[
-      {bookName:"1984",written:"Gerorge"},
-      {bookName:"x",written:"xy"},
-      {bookName:"y",written:"yz"},
-      {bookName:"z",written:"zx"}
+      {id:1,bookName:"1984",written:"Gerorge"},
+      {id:2,bookName:"x",written:"xy"},
+      {id:3,bookName:"y",written:"yz"},
+      {id:4,bookName:"z",written:"zx"}
     ]
   }
  
@@ -62,6 +62,7 @@ class App extends Component{
          written={book.written}
          delete={this.deleteBookState.bind(this,index)}
          //delete={()=>this.deleteBookState(index)}
+         key={book.id}
          />
       );
     });
