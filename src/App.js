@@ -53,15 +53,22 @@ class App extends Component{
          <button onClick={this.changeBookState.bind(this,"Nineteen Eighty Four")}>Change State</button>
          <input type="text" onChange={this.changeWithInputState}/>
 
-         <Book bookName={this.state.books[0].bookName}       written={this.state.books[0].written}
+         <Book 
+         bookName={this.state.books[0].bookName}       written={this.state.books[0].written}
          inputName={this.changeWithInputState}/>
 
-         <Book bookName={this.state.books[1].bookName} written={this.state.books[1].written}/>
+         <Book 
+         bookName={this.state.books[1].bookName} 
+         written={this.state.books[1].written}/>
 
-         <Book bookName={this.state.books[2].bookName} written={this.state.books[2].written}/>
+         <Book 
+         bookName={this.state.books[2].bookName} 
+         written={this.state.books[2].written}/>
          
 
-         <Book bookName={this.state.books[3].bookName} written={this.state.books[3].written}
+         <Book 
+         bookName={this.state.books[3].bookName} 
+         written={this.state.books[3].written}
          change={this.changeBookState.bind(this,"1984")}/> 
       </div>
     );
