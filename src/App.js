@@ -16,7 +16,8 @@ class App extends Component{
       {id:2,bookName:"x",written:"xy"},
       {id:3,bookName:"y",written:"yz"},
       {id:4,bookName:"z",written:"zx"}
-    ]
+    ],
+    showBooks:true
   }
  
  
@@ -39,6 +40,9 @@ class App extends Component{
       books:books
     });
       };
+      toggleBooks=()=>{
+      this.setState({ showBooks:!this.state.showBooks})
+      }
 
   render(){
     const style={
@@ -47,12 +51,7 @@ class App extends Component{
       backgroundColor:"black",
       color:"white"
     };
-    // const booksState=this.state.books;
-    // console.log(booksState);
-    // const books=booksState.map(function(book){
-    //   console.log(book.bookName);
-    //   console.log(book.written);
-    // });
+    
     const books=this.state.books.map((book,index)=>{
       return(
          <Book
@@ -69,7 +68,8 @@ class App extends Component{
     return(
       <div className="App">
          <h1 style={style}>Book List</h1>
-         {books}
+         <button onClick={this.toggleBooks}>Toggle Books</button>
+         {this.state.showBooks? books:null}
       </div>
     );
   }
