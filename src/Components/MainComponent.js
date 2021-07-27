@@ -1,5 +1,5 @@
 import React ,{Component} from 'react';
-import Book from './Book';
+import BookList from './lists/BookList';
 import bookList from '../assets/books';
 class MainComponent extends Component{
 // constructor(){
@@ -45,18 +45,7 @@ class MainComponent extends Component{
     
     let books=null;
     if(this.state.showBooks){
-       books=this.state.books.map((book,index)=>{
-        return(
-           <Book
-           bookName={book.bookName}
-           written={book.written}
-           delete={this.deleteBookState.bind(this,index)}
-           //delete={()=>this.deleteBookState(index)}
-           key={book.id}
-           inputName={(event)=>this.changeWithInputState(event,index)}
-           />
-        );
-      });
+       books=<BookList books={this.state.books} />
     }
     
     console.log(books);

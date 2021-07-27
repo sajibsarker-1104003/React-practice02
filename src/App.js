@@ -1,7 +1,6 @@
-
 import React from 'react';
 import './App.css';
-import Book from './Components/Book';
+import Book from './Components/representational/Book';
 import MainComponent from './Components/MainComponent';
 
 
