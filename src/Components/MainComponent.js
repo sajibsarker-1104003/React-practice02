@@ -2,14 +2,15 @@ import React ,{Component} from 'react';
 import BookList from './lists/BookList';
 import bookList from '../assets/books';
 class MainComponent extends Component{
-// constructor(){
-  //   super();
-  //   this.state={}
-  // }
-  state={
-    books:bookList,
-    showBooks:true
-  }
+ constructor(props){
+    super(props);
+    this.state={
+      books:bookList,
+      showBooks:true
+    }
+    console.log("MainComponent Component")
+   }
+  
  
  
   changeWithInputState=(event,index)=>{
@@ -35,7 +36,15 @@ class MainComponent extends Component{
       this.setState({ showBooks:!this.state.showBooks})
       }
 
+      UNSAFE_componentWillMount(){
+        console.log("MainComponent ComponentWill Mount!");
+      }
+      componentDidMount(){
+        console.log("MainComponent ComponentDidMount!");
+      }
+
   render(){
+    console.log("MainComponent Render!");
     const style={
       border:"1 px solid red",
       borderRadius:"5px",
