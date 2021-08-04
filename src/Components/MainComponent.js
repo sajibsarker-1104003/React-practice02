@@ -43,6 +43,20 @@ class MainComponent extends Component{
         console.log("MainComponent ComponentDidMount!");
       }
 
+      UNSAFE_componentWillReceiveProps(nextProps){
+        console.log("Update BookList componentWillReceiveProps",nextProps);
+      }
+      shouldComponentUpdate(nextProps,nextState){
+        console.log("Update BookList shouldComponentUpdate",nextProps,nextState);
+        return true;
+      }
+      UNSAFE_componentWillUpdate (nextProps,nextState){
+       console.log("Update BookList componentWillUpDate",nextProps,nextState);
+      }
+      componentDidUpdate(){
+        console.log("Update BookList componentDidUpdate");
+      }
+
   render(){
     console.log("MainComponent Render!");
     const style={
