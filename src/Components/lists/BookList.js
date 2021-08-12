@@ -1,37 +1,58 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 import Book from '../representational/Book';
-class BookList extends Component{
-constructor(props){
-  super(props);
-  console.log("BookList Constructor!");
-}
-UNSAFE_componentWillMount(){
-  console.log("BookList ComponentWill Mount!");
-}
-componentDidMount(){
-  console.log("BookList ComponentDidMount!");
-}
-render(){
-  console.log("BookList Render!");
-  return(
-    this.props.books.map((book,index)=>{
-      return(
-         <Book
-         bookName={book.bookName}
-         written={book.written}
-         //delete={this.deleteBookState.bind(this,index)}
-         delete={()=>this.props.deleteBookState(index)}
-         key={book.id}
-         inputName={(event)=>this.props.changeWithInputState(event,index)}
-         />
-      );
-    })
-  );
-}
-}
-  
-  
-  
 
+class BookList extends Component {
+    constructor(props) {
+        super(props);
+        console.log("BookList constructor");
+    }
+
+
+
+
+    componentDidMount() {
+        console.log("BookList componentDidMount!");
+    }
+
+
+
+
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log("Update BookList shouldComponentUpdate", nextProps, nextState);
+        return true;
+    }
+
+
+
+    componentDidUpdate() {
+        console.log("Update BookList componentDidUpdate");
+    }
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        console.log("BookList getDerivedStateFromProps", nextProps, prevState);
+        return prevState;
+    }
+
+    getSnapshotBeforeUpdate() {
+        console.log("U BookList getSnapshotBeforeUpdate");
+    }
+
+    render() {
+        console.log("BookList render");
+        return (
+            this.props.books.map((book, index) => {
+                return (
+                    <Book
+                        bookName={book.bookName}
+                        writer={book.writer}
+                        delete={() => this.props.deleteBookState(index)}
+                        key={book.id}
+                        inputName={(event) => this.props.changeWithInputState(event, index)}
+                    />
+                );
+            })
+        );
+    }
+}
 
 export default BookList;
