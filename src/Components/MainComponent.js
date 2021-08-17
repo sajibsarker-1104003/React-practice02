@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import BookList from './lists/BookList';
 import bookList from '../assets/books';
+import NewBook from './representational/NewBook';
+import {Route,NavLink} from 'react-router-dom';
 
 
 class MainComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            books: bookList,
-            showBooks: true
+            books: bookList
         }
-        console.log("MainComponent constructor!");
+        
     }
 
 
@@ -34,58 +35,26 @@ class MainComponent extends Component {
         });
     };
 
-    toggleBooks = () => {
-        this.setState({ showBooks: !this.state.showBooks });
-    }
-
-
-
-    componentDidMount() {
-        console.log("MainComponent componentDidMount!");
-    }
-
-
-    shouldComponentUpdate(nextProps, nextState) {
-        console.log("Update MainComponent shouldComponentUpdate", nextProps, nextState);
-        return true;
-    }
-
-    componentDidUpdate() {
-        console.log("Update MainComponent componentDidUpdate!");
-    }
-
-    static getDerivedStateFromProps(nextProps, prevState) {
-        console.log("MainComponent getDerivedStateFromProps", nextProps, prevState);
-        return prevState;
-    }
-
-    getSnapshotBeforeUpdate() {
-        console.log("Update MainComponent getSnapshotBeforeUpdate");
-    }
-
     render() {
-        console.log("MainCompoent render");
-        const style = {
-            border: "1px solid red",
-            borderRadius: "5px",
-            backgroundColor: "black",
-            color: "white",
-        };
-
-        let books = null;
-        if (this.state.showBooks) {
-            books = <BookList
+      
+            const books = <BookList
                 books={this.state.books}
                 deleteBookState={this.deleteBookState}
                 changeWithInputState={this.changeWithInputState}
             />
-        }
+        
 
         return (
             <div className="App">
-                <h1 style={style}>Book List</h1>
-                <button onClick={this.toggleBooks}>Toggle Books</button>
-                {books}
+                <nav className="nav-bar">
+                   <ul>
+                       <li><NavLink to="/" exact>Home</NavLink></li>
+                       <li><NavLink to="/new-book">NewBook</NavLink></li>
+                   </ul>
+                </nav>
+              <Route path="/" exact render={()=>books}/>
+              <Route path="/new-book" exact render={()=><NewBook/>}/>
+              {/* <Route path="/new-book" exact component={NewBook}/> */}
             </div>
         );
     }
