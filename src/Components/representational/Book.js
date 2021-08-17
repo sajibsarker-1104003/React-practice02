@@ -1,12 +1,17 @@
 import React from 'react';
 import '../../stylesheets/Book.css';
-const Book=(props)=>{
-  return(
-    <div className="Book">
-      <h1 onClick={props.delete}> Book:{props.bookName}    Written:{props.written}</h1>
-      <h2>Info:{props.children}</h2>
-      <input type="text" onChange={props.inputName} value={props.bookName}/>
-    </div>
-        );
+import { withRouter } from 'react-router-dom';
+
+const Book = props => {
+    console.log(props);
+    return (
+        <div className="Book">
+            <h3 onClick={props.delete}>Book: {props.bookName}</h3>
+            <h4>Writer: {props.writer}</h4>
+            <input type="text" onChange={props.inputName} value={props.bookName} />
+        </div>
+
+    );
 }
-export default Book;
+
+export default withRouter(Book);

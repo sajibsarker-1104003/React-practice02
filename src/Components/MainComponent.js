@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import BookList from './lists/BookList';
 import bookList from '../assets/books';
 import NewBook from './representational/NewBook';
-import {Route,NavLink} from 'react-router-dom';
-
+import { Route, NavLink } from 'react-router-dom';
 
 class MainComponent extends Component {
     constructor(props) {
@@ -11,9 +10,7 @@ class MainComponent extends Component {
         this.state = {
             books: bookList
         }
-        
     }
-
 
     changeWithInputState = (event, index) => {
         const book = {
@@ -36,25 +33,23 @@ class MainComponent extends Component {
     };
 
     render() {
-      
-            const books = <BookList
-                books={this.state.books}
-                deleteBookState={this.deleteBookState}
-                changeWithInputState={this.changeWithInputState}
-            />
-        
+
+        const books = <BookList
+            books={this.state.books}
+            deleteBookState={this.deleteBookState}
+            changeWithInputState={this.changeWithInputState}
+        />
 
         return (
             <div className="App">
                 <nav className="nav-bar">
-                   <ul>
-                       <li><NavLink to="/" exact>Home</NavLink></li>
-                       <li><NavLink to="/new-book">NewBook</NavLink></li>
-                   </ul>
+                    <ul>
+                        <li><NavLink to="/" exact>Home</NavLink></li>
+                        <li><NavLink to="/new-book">New Book</NavLink></li>
+                    </ul>
                 </nav>
-              <Route path="/" exact render={()=>books}/>
-              <Route path="/new-book" exact render={()=><NewBook/>}/>
-              {/* <Route path="/new-book" exact component={NewBook}/> */}
+                <Route path="/" exact render={() => books} />
+                <Route path="/new-book" exact component={NewBook} />
             </div>
         );
     }
