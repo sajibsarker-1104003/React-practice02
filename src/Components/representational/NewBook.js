@@ -8,6 +8,8 @@ class NewBook extends Component{
             writer:"",
             description:""
         }
+        this.handleInputChange=this.handleInputChange.bind(this);
+        this.handleSubmit=this.handleSubmit.bind(this);
     }
     handleInputChange=e=>{
         console.log(e.target);
@@ -17,26 +19,29 @@ class NewBook extends Component{
             [name]:value
         })
     }
-    componentDidUpdate(){
+    handleSubmit=e=>{
         console.log(this.state);
+        e.preventDefault();
+        
     }
+    
     render() {
         //console.log(props);
 return (
     <div>
         <h1>New Book Entry</h1>
-        <form>
+        <form onSubmit={this.handleSubmit}>
             <label>BookName:</label>
             <br/>
-            <input type="text" name="bookName" value={this.state.bookName} onChange={e=>this.handleInputChange(e)}/>
+            <input type="text" name="bookName" value={this.state.bookName} onChange={this.handleInputChange}/>
             <br/>
             <label>Writer:</label>
             <br/>
-            <input type="text" name="writer" value={this.state.writer} onChange={e=>this.handleInputChange(e)}/>
+            <input type="text" name="writer" value={this.state.writer} onChange={this.handleInputChange}/>
             <br/>
             <label>Description:</label>
             <br/>
-            <textarea name="description" value={this.state.description} onChange={e=>this.handleInputChange(e)}/>
+            <textarea name="description" value={this.state.description} onChange={this.handleInputChange}/>
             <br/>
             <input type="submit" value="Submit"/>
         </form>
