@@ -1,26 +1,18 @@
-import React,{Component} from 'react';
+import React,{Component,createRef} from 'react';
 
 class NewBook extends Component{
     constructor(props){
         super(props);
-        this.state={
-            bookName:"",
-            writer:"",
-            description:""
-        }
-        this.handleInputChange=this.handleInputChange.bind(this);
+        this.bookName=createRef();
+        this.writer=createRef();
+        this.description=createRef();
         this.handleSubmit=this.handleSubmit.bind(this);
     }
-    handleInputChange=e=>{
-        console.log(e.target);
-        const name=e.target.name;
-        const value=e.target.value;
-        this.setState({
-            [name]:value
-        })
-    }
+   
     handleSubmit=e=>{
-        console.log(this.state);
+        console.log(this.bookName.current.value);
+        console.log(this.writer.current.value);
+        console.log(this.description.current.value);
         e.preventDefault();
         
     }
@@ -33,15 +25,15 @@ return (
         <form onSubmit={this.handleSubmit}>
             <label>BookName:</label>
             <br/>
-            <input type="text" name="bookName" value={this.state.bookName} onChange={this.handleInputChange}/>
+            <input type="text" name="bookName" ref={this.bookName}/>
             <br/>
             <label>Writer:</label>
             <br/>
-            <input type="text" name="writer" value={this.state.writer} onChange={this.handleInputChange}/>
+            <input type="text" name="writer" ref={this.writer}/>
             <br/>
             <label>Description:</label>
             <br/>
-            <textarea name="description" value={this.state.description} onChange={this.handleInputChange}/>
+            <textarea name="description" ref={this.description}/>
             <br/>
             <input type="submit" value="Submit"/>
         </form>
